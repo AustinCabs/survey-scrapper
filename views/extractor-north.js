@@ -4,8 +4,8 @@
 
 
 
-// data("Surallah")
-// document.getElementById("sum").innerHTML = "Surallah";
+data("City of Kidapawan")
+document.getElementById("sum").innerHTML = "City of Kidapawan";
 
 function sum() {  
 var mun = document.getElementById("select").value;
