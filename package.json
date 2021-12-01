@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
-    "north": "nodemon nocot.js"
+    "north": "nodemon nocot.js",
+    "banga": "nodemon banga.js"
   },
   "author": "",
   "license": "ISC",

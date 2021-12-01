@@ -4,8 +4,8 @@
 
 
 
-data("Surallah")
-document.getElementById("sum").innerHTML = "Surallah";
+data("Banga")
+document.getElementById("sum").innerHTML = "Banga";
 
 function sum() {  
 var mun = document.getElementById("select").value;
