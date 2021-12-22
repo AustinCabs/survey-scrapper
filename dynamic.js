@@ -23,11 +23,13 @@ app.get("/data/:url_name/:mun",async function(req, res) {
     // console.log(req.params.mun);
     const conn = await db.connectDb();
     const sql =   await conn.all('SELECT * FROM url WHERE url_id =' + req.params.url_name);
-    console.log(sql);
-    let url = `${sql[0].url_name}${req.params.mun}`
-    console.log(url);
+    // console.log(sql);
+    let mun = req.params.mun
+    // var replaced = mun.split(' ').join('%20');
+    let url = `${sql[0].url_name}${encodeURIComponent(mun)}`
+    // console.log(url);
     let data = await axios.get(url)
-      //console.log(data)
+      // console.log(data)
       res.json(data.data)
     //  res.send(JSON.stringify(data))
     
@@ -56,7 +58,7 @@ app.get("/data/:url_name/:mun",async function(req, res) {
   app.get('/city_mun/:id',  async(req, res) => {
     try {
       const conn = await db.connectDb();
-      const sql =   await conn.all(`SELECT * FROM city_mun c inner join url u on c.url_id = u.url_id WHERE c.url_id = ${req.params.id}`)
+      const sql =   await conn.all(`SELECT * FROM city_mun WHERE url_id = ${req.params.id}`)
     //  console.log(sql)
       res.json(sql)
 
