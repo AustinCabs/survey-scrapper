@@ -22,7 +22,7 @@ app.get("/data/:url_name/:mun",async function(req, res) {
     // console.log(req.params.url_name);
     // console.log(req.params.mun);
     const conn = await db.connectDb();
-    const sql =   await conn.all('SELECT * FROM url WHERE url_id =' + req.params.url_name);
+    const sql =   await conn.all('SELECT * FROM url WHERE url_id =' + req.params.url_name );
     // console.log(sql);
     let mun = req.params.mun
     // var replaced = mun.split(' ').join('%20');
@@ -43,7 +43,7 @@ app.get("/data/:url_name/:mun",async function(req, res) {
   app.get('/',  async(req, res) => {
     try {
       const conn = await db.connectDb();
-      const sql =   await conn.all('SELECT * FROM url')
+      const sql =   await conn.all('SELECT * FROM url ORDER BY url_id DESC')
       // console.log(sql)
       res.render('dynamic',{
         data:sql
